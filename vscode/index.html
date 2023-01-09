@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h2>Things to do first when starting a project in VSCODE</h2>
+        <ul>
+            <li>Install eslint from project root and save the dependency as only for development with<br> <div class="code">npm install eslint --save-dev</div></li>
+            <li>Install Prettier from project root and save the dependency as only for development with<br><div class="code">npm install --save-dev prettier</div></li>
+            <li>Install the "eslint" and "Prettier ESLint" extensions in vscode</li>
+            <li>Create an eslint configuration file from the project root by typing in terminal:<br><div class="code">./node_modules/.bin/eslint --init</div></li>
+            <li>Open the command palette in VS Code by typing:<br><div class="code">CTRL + SHIFT + P</div></li>
+            <li>In the command palette type:<br><div class="code">Preferences: Open Workspace Settings (JSON)</div></li>
+            <li>In the .vscode/settings.json file we just opened, copy and paste the following settings<br><div class="code">{
+                "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+                "editor.formatOnPaste": false, // required 
+                "editor.formatOnType": false, // required
+                "editor.formatOnSave": true, // optional 
+                "editor.formatOnSaveMode": "file", // required to format on save
+                "files.autoSave": "onFocusChange" // optional but recommended
+              }</div></li>
+              <li>Restart VSCode</li>
+        </ul>
+    </div>
+</body>
+</html>
