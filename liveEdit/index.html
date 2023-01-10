@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h2>Setting up live editing with an express server</h2>
+        <ul>
+            <li>Install nodemon and live reload dependencies as development only with:<br> <div class="code">npm i -D nodemon livereload connect-livereload</div></li>
+            <li>Open up package.json and add a watch script. Make sure "start" points to the js file your app launches from. "--ext
+                 tells nodemon what file extensions to watch for changes to<br><div class="code">"scripts": {<br>
+                    &emsp;   "start": "node app.js",<br>
+                    &emsp; "watch": "nodemon --ext *"<br>
+                  }</div></li>
+            <li>From now on, run the server with<br><div class="code">npm run watch</div></li>
+            <li>Add the following code to your app.js to import and run the liveReloadServer<br><div class="code">
+                var livereload = require("livereload");<br>
+                var connectLiveReload = require("connect-livereload");<br><br>
+
+                const liveReloadServer = livereload.createServer();<br><br>
+
+                liveReloadServer.server.once("connection", () => {<br>
+                &emsp;setTimeout(() => {<br>
+                    &emsp;&emsp;    liveReloadServer.refresh("/");<br>
+                    &emsp;}, 100);<br>
+                });<br><br>
+
+                app.use(connectLiveReload());
+            </div></li>
+        </ul>
+    </div>
+</body>
+</html>
